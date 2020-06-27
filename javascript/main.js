@@ -1,1 +1,1 @@
-console.log("Hola Mundo");
+import productList from "./modules/products.js";
