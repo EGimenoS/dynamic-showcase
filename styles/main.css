@@ -1,1 +1,102 @@
+/* Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
 
+body {
+  font-family: "Mukta", sans-serif;
+  box-sizing: border-box;
+  padding: 3rem;
+}
+
+/*Definición de elementos principales*/
+
+.heading1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart,
+.product-list {
+  border: solid 2px black;
+  min-height: 30vh;
+}
+
+.cart {
+  padding: 1rem;
+  background-color: #baffc9;
+  margin-bottom: 1rem;
+}
+
+.product-list {
+  background-color: #ffdfba;
+}
+
+/* Cards de producto */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  min-height: 20rem;
+  margin: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  border: solid 1px black;
+  background-image: linear-gradient(to right bottom, #0cbcb8, #f0ffff);
+}
+
+.card:hover {
+  cursor: grab;
+  scale: 1.1;
+}
+
+.card-data {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background-color: white;
+}
+
+.card-title {
+  padding: 0 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.card-price::before {
+  content: "€";
+}
+
+.card-price {
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 0 1rem;
+  align-self: flex-end;
+}
+
+.card-image {
+  background-image: url("../assets/images/pescado.svg");
+  background-size: cover;
+  min-height: 15rem;
+}
