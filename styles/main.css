@@ -54,6 +54,7 @@ body {
 }
 
 .card {
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
   width: 15%;
@@ -67,6 +68,7 @@ body {
 
 .card:hover {
   cursor: grab;
+  scale: 1.1;
 }
 
 .card-data {
@@ -80,6 +82,10 @@ body {
   padding: 0 1rem;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.card-price::before {
+  content: "€";
 }
 
 .card-price {
