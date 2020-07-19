@@ -50,17 +50,42 @@ function createItemCard(item) {
 
 function createCartLine(id) {
   const item = productList.find((product) => product.id === id);
-  console.log(item);
+
   const newCartLine = document.createElement("div");
+
+  // generación de nodos
   const newCartLineName = document.createElement("div");
   const newCartLinePrice = document.createElement("div");
+  const newCartLineIcon = document.createElement("img");
+  const newCartLineDelete = document.createElement("img");
+
+  // adición de clases CSS
   newCartLine.classList.add("cart-line");
   newCartLineName.classList.add("cart-line-name");
   newCartLinePrice.classList.add("cart-line-price");
+  newCartLineIcon.classList.add("cart-line-icon");
+  newCartLineDelete.classList.add("cart-line-delete");
+
+  // se añade contenido
   newCartLineName.textContent = item.name;
   newCartLinePrice.textContent = item.price;
+  newCartLineIcon.setAttribute("src", item.img);
+  newCartLineDelete.setAttribute("src", "./assets/images/delete.svg");
+
+  // configuramos el elemento HTML final
+  newCartLine.appendChild(newCartLineIcon);
   newCartLine.appendChild(newCartLineName);
   newCartLine.appendChild(newCartLinePrice);
+  newCartLine.appendChild(newCartLineDelete);
+
+  // se añade event listener para gestionar el borrado de un elemento del
+  newCartLineDelete.addEventListener("click", (event) => {
+    const positionInCart = event.target.parentElement.getAttribute("data-position");
+    cart.splice(positionInCart, 1);
+    updateTotal();
+    console.log(cart);
+    event.target.parentElement.remove();
+  });
   return newCartLine;
 }
 
@@ -78,11 +103,16 @@ function setDropZone() {
     console.log(cart);
     const newCartLine = createCartLine(id);
     dropZone.appendChild(newCartLine);
-    const amountElement = document.getElementById("total-amount");
-    amountElement.textContent = calculateTotal();
+    //indicamos la posición del elemento en el array cart
+    newCartLine.dataset.position = cart.length - 1;
+    // actualisamos total
+    updateTotal();
   });
 }
-
+function updateTotal() {
+  const amountElement = document.getElementById("total-amount");
+  amountElement.textContent = calculateTotal();
+}
 // inicializa el grid con las cards de productos disponibles
 function initializeProductGrid() {
   const entryNode = document.getElementById("cards");

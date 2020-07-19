@@ -109,6 +109,18 @@ body {
   font-size: 3rem;
 }
 
+.cart-line:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.cart-line-icon,
+.cart-line-delete {
+  width: 5%;
+}
+
+.cart-line-delete {
+  margin-left: 2rem;
+}
 .cart-line-name {
   margin: 0 2rem;
   text-transform: uppercase;
