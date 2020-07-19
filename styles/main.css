@@ -57,7 +57,7 @@ body {
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 25rem;
   min-height: 20rem;
   margin: 1rem;
   border-radius: 0.25rem;
@@ -98,5 +98,42 @@ body {
 .card-image {
   background-image: url("../assets/images/pescado.svg");
   background-size: cover;
-  min-height: 15rem;
+  min-height: 25rem;
+}
+
+/* Carro de la compra */
+
+.cart-line {
+  display: flex;
+  justify-content: start;
+  font-size: 3rem;
+}
+
+.cart-line-name {
+  margin: 0 2rem;
+  text-transform: uppercase;
+}
+
+.cart-line-price::before {
+  content: "€";
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+.cart-header > img {
+  width: 10%;
+}
+
+#total-amount {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+#total-amount::before {
+  content: "€";
 }
